@@ -1,0 +1,387 @@
+[
+  {
+    "id": 1,
+    "slug": "ang-mo-kio",
+    "name": "Ang Mo Kio",
+    "region": "North-East",
+    "population": 152000
+  },
+  {
+    "id": 3,
+    "slug": "bishan",
+    "name": "Bishan",
+    "region": "Central",
+    "population": 92000
+  },
+  {
+    "id": 2,
+    "slug": "bedok",
+    "name": "Bedok",
+    "region": "East",
+    "population": 289000
+  },
+  {
+    "id": 27,
+    "slug": "tampines",
+    "name": "Tampines",
+    "region": "East",
+    "population": 265000
+  },
+  {
+    "id": 15,
+    "slug": "jurong-east",
+    "name": "Jurong East",
+    "region": "West",
+    "population": 125000
+  },
+  {
+    "id": 29,
+    "slug": "woodlands",
+    "name": "Woodlands",
+    "region": "North",
+    "population": 255000
+  },
+  {
+    "id": 16,
+    "slug": "jurong-west",
+    "name": "Jurong West",
+    "region": "West",
+    "population": 262000
+  },
+  {
+    "id": 4,
+    "slug": "boon-lay",
+    "name": "Boon Lay",
+    "region": "West",
+    "population": 65000
+  },
+  {
+    "id": 5,
+    "slug": "bukit-batok",
+    "name": "Bukit Batok",
+    "region": "West",
+    "population": 140000
+  },
+  {
+    "id": 6,
+    "slug": "bukit-merah",
+    "name": "Bukit Merah",
+    "region": "Central",
+    "population": 156000
+  },
+  {
+    "id": 7,
+    "slug": "bukit-panjang",
+    "name": "Bukit Panjang",
+    "region": "West",
+    "population": 139000
+  },
+  {
+    "id": 8,
+    "slug": "bukit-timah",
+    "name": "Bukit Timah",
+    "region": "Central",
+    "population": 78000
+  },
+  {
+    "id": 10,
+    "slug": "changi",
+    "name": "Changi",
+    "region": "East",
+    "population": 25000
+  },
+  {
+    "id": 11,
+    "slug": "choa-chu-kang",
+    "name": "Choa Chu Kang",
+    "region": "West",
+    "population": 179000
+  },
+  {
+    "id": 12,
+    "slug": "clementi",
+    "name": "Clementi",
+    "region": "West",
+    "population": 96000
+  },
+  {
+    "id": 13,
+    "slug": "geylang",
+    "name": "Geylang",
+    "region": "Central",
+    "population": 115000
+  },
+  {
+    "id": 14,
+    "slug": "hougang",
+    "name": "Hougang",
+    "region": "North-East",
+    "population": 215000
+  },
+  {
+    "id": 17,
+    "slug": "kallang-whampoa",
+    "name": "Kallang/Whampoa",
+    "region": "Central",
+    "population": 108000
+  },
+  {
+    "id": 18,
+    "slug": "lim-chu-kang",
+    "name": "Lim Chu Kang",
+    "region": "North",
+    "population": 2000
+  },
+  {
+    "id": 19,
+    "slug": "mandai",
+    "name": "Mandai",
+    "region": "North",
+    "population": 3000
+  },
+  {
+    "id": 20,
+    "slug": "marine-parade",
+    "name": "Marine Parade",
+    "region": "East",
+    "population": 46000
+  },
+  {
+    "id": 21,
+    "slug": "pasir-ris",
+    "name": "Pasir Ris",
+    "region": "East",
+    "population": 139000
+  },
+  {
+    "id": 22,
+    "slug": "punggol",
+    "name": "Punggol",
+    "region": "North-East",
+    "population": 195000
+  },
+  {
+    "id": 23,
+    "slug": "queenstown",
+    "name": "Queenstown",
+    "region": "Central",
+    "population": 98000
+  },
+  {
+    "id": 24,
+    "slug": "sembawang",
+    "name": "Sembawang",
+    "region": "North",
+    "population": 104000
+  },
+  {
+    "id": 25,
+    "slug": "sengkang",
+    "name": "Sengkang",
+    "region": "North-East",
+    "population": 240000
+  },
+  {
+    "id": 26,
+    "slug": "serangoon",
+    "name": "Serangoon",
+    "region": "North-East",
+    "population": 96000
+  },
+  {
+    "id": 28,
+    "slug": "toa-payoh",
+    "name": "Toa Payoh",
+    "region": "Central",
+    "population": 121000
+  },
+  {
+    "id": 30,
+    "slug": "yishun",
+    "name": "Yishun",
+    "region": "North",
+    "population": 218000
+  },
+  {
+    "id": 31,
+    "slug": "novena",
+    "name": "Novena",
+    "region": "Central",
+    "population": 52000
+  },
+  {
+    "id": 32,
+    "slug": "tanglin",
+    "name": "Tanglin",
+    "region": "Central",
+    "population": 28000
+  },
+  {
+    "id": 33,
+    "slug": "tengah",
+    "name": "Tengah",
+    "region": "West",
+    "population": 10000
+  },
+  {
+    "id": 34,
+    "slug": "sungei-kadut",
+    "name": "Sungei Kadut",
+    "region": "North",
+    "population": 1500
+  },
+  {
+    "id": 35,
+    "slug": "tuas",
+    "name": "Tuas",
+    "region": "West",
+    "population": 1000
+  },
+  {
+    "id": 36,
+    "slug": "western-islands",
+    "name": "Western Islands",
+    "region": "West",
+    "population": 2000
+  },
+  {
+    "id": 37,
+    "slug": "western-water-catchment",
+    "name": "Western Water Catchment",
+    "region": "West",
+    "population": 500
+  },
+  {
+    "id": 38,
+    "slug": "sim-pang",
+    "name": "Simpang",
+    "region": "North",
+    "population": 2000
+  },
+  {
+    "id": 39,
+    "slug": "southern-islands",
+    "name": "Southern Islands",
+    "region": "Central",
+    "population": 1500
+  },
+  {
+    "id": 41,
+    "slug": "marina-south",
+    "name": "Marina South",
+    "region": "Central",
+    "population": 1000
+  },
+  {
+    "id": 42,
+    "slug": "marina-east",
+    "name": "Marina East",
+    "region": "Central",
+    "population": 500
+  },
+  {
+    "id": 43,
+    "slug": "straits-view",
+    "name": "Straits View",
+    "region": "Central",
+    "population": 200
+  },
+  {
+    "id": 44,
+    "slug": "singapore-river",
+    "name": "Singapore River",
+    "region": "Central",
+    "population": 6000
+  },
+  {
+    "id": 45,
+    "slug": "rochor",
+    "name": "Rochor",
+    "region": "Central",
+    "population": 14000
+  },
+  {
+    "id": 46,
+    "slug": "outram",
+    "name": "Outram",
+    "region": "Central",
+    "population": 22000
+  },
+  {
+    "id": 47,
+    "slug": "museum",
+    "name": "Museum",
+    "region": "Central",
+    "population": 3500
+  },
+  {
+    "id": 48,
+    "slug": "newton",
+    "name": "Newton",
+    "region": "Central",
+    "population": 7000
+  },
+  {
+    "id": 49,
+    "slug": "orchard",
+    "name": "Orchard",
+    "region": "Central",
+    "population": 1000
+  },
+  {
+    "id": 50,
+    "slug": "river-valley",
+    "name": "River Valley",
+    "region": "Central",
+    "population": 10000
+  },
+  {
+    "id": 51,
+    "slug": "changi-bay",
+    "name": "Changi Bay",
+    "region": "East",
+    "population": 100
+  },
+  {
+    "id": 52,
+    "slug": "pioneer",
+    "name": "Pioneer",
+    "region": "West",
+    "population": 3000
+  },
+  {
+    "id": 53,
+    "slug": "gul",
+    "name": "Gul",
+    "region": "West",
+    "population": 500
+  },
+  {
+    "id": 54,
+    "slug": "benoi",
+    "name": "Benoi",
+    "region": "West",
+    "population": 500
+  },
+  {
+    "id": 55,
+    "slug": "mandai-wildlife",
+    "name": "Mandai Wildlife",
+    "region": "North",
+    "population": 500
+  },
+  {
+    "id": 9,
+    "slug": "central-area",
+    "name": "Central Area",
+    "region": "Central",
+    "population": 45000
+  },
+  {
+    "id": 40,
+    "slug": "downtown-core",
+    "name": "Downtown Core",
+    "region": "Central",
+    "population": 8000
+  }
+]

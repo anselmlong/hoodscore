@@ -1,0 +1,3302 @@
+[
+  {
+    "area": {
+      "id": 1,
+      "slug": "ang-mo-kio",
+      "name": "Ang Mo Kio",
+      "region": "North-East",
+      "population": 152000
+    },
+    "overall": 81.5,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 88,
+        "rawValue": 42,
+        "unit": "stops & stations within 1km",
+        "description": "Excellent MRT & bus connectivity with two MRT lines"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 92,
+        "rawValue": 18,
+        "unit": "hawker centres within 1km",
+        "description": "Rich hawker culture, famous for Ang Mo Kio 628 Market"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 85,
+        "rawValue": 31,
+        "unit": "schools within 2km",
+        "description": "Well-served by primary & secondary schools"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 70,
+        "rawValue": 24,
+        "unit": "% green coverage",
+        "description": "Several parks including Ang Mo Kio Town Garden West"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.2,
+        "unit": "crimes per 10,000 residents",
+        "description": "Below-average crime rate for mature estate"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 72,
+        "rawValue": 480000,
+        "unit": "median resale price (S$)",
+        "description": "Moderately priced HDB resale flats"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 3,
+      "slug": "bishan",
+      "name": "Bishan",
+      "region": "Central",
+      "population": 92000
+    },
+    "overall": 80.5,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 87,
+        "rawValue": 40,
+        "unit": "stops & stations within 1km",
+        "description": "Bishan MRT interchange (Circle & North-South lines)"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 80,
+        "rawValue": 12,
+        "unit": "hawker centres within 1km",
+        "description": "Good food at Junction 8 and Bishan Street 11 market"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 92,
+        "rawValue": 35,
+        "unit": "schools within 2km",
+        "description": "Top schools including Raffles Institution nearby"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 78,
+        "rawValue": 28,
+        "unit": "% green coverage",
+        "description": "Bishan-Ang Mo Kio Park is a flagship green space"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 88,
+        "rawValue": 2.4,
+        "unit": "crimes per 10,000 residents",
+        "description": "Very low crime rate"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 58,
+        "rawValue": 580000,
+        "unit": "median resale price (S$)",
+        "description": "Premier location commands premium HDB prices"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 2,
+      "slug": "bedok",
+      "name": "Bedok",
+      "region": "East",
+      "population": 289000
+    },
+    "overall": 80.17,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 82,
+        "rawValue": 38,
+        "unit": "stops & stations within 1km",
+        "description": "Bedok MRT interchange and extensive bus network"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 95,
+        "rawValue": 22,
+        "unit": "hawker centres within 1km",
+        "description": "Famous for Bedok 85 Fengshan Market and hawker scene"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 84,
+        "rawValue": 29,
+        "unit": "schools within 2km",
+        "description": "Good mix of primary & secondary schools"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 65,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Bedok Reservoir Park is a major attraction"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 80,
+        "rawValue": 3.5,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe with typical estate crime rates"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Affordable HDB flats in a mature estate"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 27,
+      "slug": "tampines",
+      "name": "Tampines",
+      "region": "East",
+      "population": 265000
+    },
+    "overall": 79.0,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 84,
+        "rawValue": 38,
+        "unit": "stops & stations within 1km",
+        "description": "Tampines MRT interchange (EWL & DTL)"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 86,
+        "rawValue": 14,
+        "unit": "hawker centres within 1km",
+        "description": "Tampines Round Market & Century Square"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 84,
+        "rawValue": 28,
+        "unit": "schools within 2km",
+        "description": "Top schools: Temasek Junior College, East Spring"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 66,
+        "rawValue": 21,
+        "unit": "% green coverage",
+        "description": "Tampines Eco Green, Sun Plaza Park"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.2,
+        "unit": "crimes per 10,000 residents",
+        "description": "Safe, well-planned estate"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 72,
+        "rawValue": 480000,
+        "unit": "median resale price (S$)",
+        "description": "Reasonably priced regional centre"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 15,
+      "slug": "jurong-east",
+      "name": "Jurong East",
+      "region": "West",
+      "population": 125000
+    },
+    "overall": 78.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 90,
+        "rawValue": 45,
+        "unit": "stops & stations within 1km",
+        "description": "Jurong East MRT major interchange (NSL, EWL, JRL)"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 84,
+        "rawValue": 14,
+        "unit": "hawker centres within 1km",
+        "description": "Jurong Point & Taman Jurong Market"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 80,
+        "rawValue": 26,
+        "unit": "schools within 2km",
+        "description": "Several schools including Jurong Secondary"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 64,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Jurong Lake Gardens, Chinese Garden"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 76,
+        "rawValue": 3.9,
+        "unit": "crimes per 10,000 residents",
+        "description": "Moderate crime rate"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 76,
+        "rawValue": 440000,
+        "unit": "median resale price (S$)",
+        "description": "Affordable with good future prospects"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 29,
+      "slug": "woodlands",
+      "name": "Woodlands",
+      "region": "North",
+      "population": 255000
+    },
+    "overall": 76.0,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 80,
+        "rawValue": 34,
+        "unit": "stops & stations within 1km",
+        "description": "Woodlands MRT, bus interchange, JB link"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 78,
+        "rawValue": 11,
+        "unit": "hawker centres within 1km",
+        "description": "Woodlands Market & Causeway Point"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 78,
+        "rawValue": 24,
+        "unit": "schools within 2km",
+        "description": "Good schools including Woodlands Ring Primary"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 66,
+        "rawValue": 22,
+        "unit": "% green coverage",
+        "description": "Admiralty Park, Woodlands Waterfront"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 78,
+        "rawValue": 3.7,
+        "unit": "crimes per 10,000 residents",
+        "description": "Moderate crime rate for large estate"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 76,
+        "rawValue": 440000,
+        "unit": "median resale price (S$)",
+        "description": "Affordable northern estate"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 16,
+      "slug": "jurong-west",
+      "name": "Jurong West",
+      "region": "West",
+      "population": 262000
+    },
+    "overall": 74.0,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 72,
+        "rawValue": 28,
+        "unit": "stops & stations within 1km",
+        "description": "Pioneer and Boon Lay MRT stations"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 76,
+        "rawValue": 11,
+        "unit": "hawker centres within 1km",
+        "description": "Decent hawker options in HDB blocks"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 74,
+        "rawValue": 22,
+        "unit": "schools within 2km",
+        "description": "Near Nanyang Technological University"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 58,
+        "rawValue": 16,
+        "unit": "% green coverage",
+        "description": "Limited green space, mostly built-up"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 78,
+        "rawValue": 3.6,
+        "unit": "crimes per 10,000 residents",
+        "description": "Moderate safety record"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 86,
+        "rawValue": 360000,
+        "unit": "median resale price (S$)",
+        "description": "Very affordable, popular with young families"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 4,
+      "slug": "boon-lay",
+      "name": "Boon Lay",
+      "region": "West",
+      "population": 65000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 5,
+      "slug": "bukit-batok",
+      "name": "Bukit Batok",
+      "region": "West",
+      "population": 140000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 6,
+      "slug": "bukit-merah",
+      "name": "Bukit Merah",
+      "region": "Central",
+      "population": 156000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 7,
+      "slug": "bukit-panjang",
+      "name": "Bukit Panjang",
+      "region": "West",
+      "population": 139000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 8,
+      "slug": "bukit-timah",
+      "name": "Bukit Timah",
+      "region": "Central",
+      "population": 78000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 10,
+      "slug": "changi",
+      "name": "Changi",
+      "region": "East",
+      "population": 25000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 11,
+      "slug": "choa-chu-kang",
+      "name": "Choa Chu Kang",
+      "region": "West",
+      "population": 179000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 12,
+      "slug": "clementi",
+      "name": "Clementi",
+      "region": "West",
+      "population": 96000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 13,
+      "slug": "geylang",
+      "name": "Geylang",
+      "region": "Central",
+      "population": 115000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 14,
+      "slug": "hougang",
+      "name": "Hougang",
+      "region": "North-East",
+      "population": 215000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 17,
+      "slug": "kallang-whampoa",
+      "name": "Kallang/Whampoa",
+      "region": "Central",
+      "population": 108000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 18,
+      "slug": "lim-chu-kang",
+      "name": "Lim Chu Kang",
+      "region": "North",
+      "population": 2000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 19,
+      "slug": "mandai",
+      "name": "Mandai",
+      "region": "North",
+      "population": 3000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 20,
+      "slug": "marine-parade",
+      "name": "Marine Parade",
+      "region": "East",
+      "population": 46000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 21,
+      "slug": "pasir-ris",
+      "name": "Pasir Ris",
+      "region": "East",
+      "population": 139000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 22,
+      "slug": "punggol",
+      "name": "Punggol",
+      "region": "North-East",
+      "population": 195000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 23,
+      "slug": "queenstown",
+      "name": "Queenstown",
+      "region": "Central",
+      "population": 98000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 24,
+      "slug": "sembawang",
+      "name": "Sembawang",
+      "region": "North",
+      "population": 104000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 25,
+      "slug": "sengkang",
+      "name": "Sengkang",
+      "region": "North-East",
+      "population": 240000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 26,
+      "slug": "serangoon",
+      "name": "Serangoon",
+      "region": "North-East",
+      "population": 96000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 28,
+      "slug": "toa-payoh",
+      "name": "Toa Payoh",
+      "region": "Central",
+      "population": 121000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 30,
+      "slug": "yishun",
+      "name": "Yishun",
+      "region": "North",
+      "population": 218000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 31,
+      "slug": "novena",
+      "name": "Novena",
+      "region": "Central",
+      "population": 52000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 32,
+      "slug": "tanglin",
+      "name": "Tanglin",
+      "region": "Central",
+      "population": 28000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 33,
+      "slug": "tengah",
+      "name": "Tengah",
+      "region": "West",
+      "population": 10000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 34,
+      "slug": "sungei-kadut",
+      "name": "Sungei Kadut",
+      "region": "North",
+      "population": 1500
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 35,
+      "slug": "tuas",
+      "name": "Tuas",
+      "region": "West",
+      "population": 1000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 36,
+      "slug": "western-islands",
+      "name": "Western Islands",
+      "region": "West",
+      "population": 2000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 37,
+      "slug": "western-water-catchment",
+      "name": "Western Water Catchment",
+      "region": "West",
+      "population": 500
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 38,
+      "slug": "sim-pang",
+      "name": "Simpang",
+      "region": "North",
+      "population": 2000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 39,
+      "slug": "southern-islands",
+      "name": "Southern Islands",
+      "region": "Central",
+      "population": 1500
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 41,
+      "slug": "marina-south",
+      "name": "Marina South",
+      "region": "Central",
+      "population": 1000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 42,
+      "slug": "marina-east",
+      "name": "Marina East",
+      "region": "Central",
+      "population": 500
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 43,
+      "slug": "straits-view",
+      "name": "Straits View",
+      "region": "Central",
+      "population": 200
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 44,
+      "slug": "singapore-river",
+      "name": "Singapore River",
+      "region": "Central",
+      "population": 6000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 45,
+      "slug": "rochor",
+      "name": "Rochor",
+      "region": "Central",
+      "population": 14000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 46,
+      "slug": "outram",
+      "name": "Outram",
+      "region": "Central",
+      "population": 22000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 47,
+      "slug": "museum",
+      "name": "Museum",
+      "region": "Central",
+      "population": 3500
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 48,
+      "slug": "newton",
+      "name": "Newton",
+      "region": "Central",
+      "population": 7000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 49,
+      "slug": "orchard",
+      "name": "Orchard",
+      "region": "Central",
+      "population": 1000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 50,
+      "slug": "river-valley",
+      "name": "River Valley",
+      "region": "Central",
+      "population": 10000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 51,
+      "slug": "changi-bay",
+      "name": "Changi Bay",
+      "region": "East",
+      "population": 100
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 52,
+      "slug": "pioneer",
+      "name": "Pioneer",
+      "region": "West",
+      "population": 3000
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 53,
+      "slug": "gul",
+      "name": "Gul",
+      "region": "West",
+      "population": 500
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 54,
+      "slug": "benoi",
+      "name": "Benoi",
+      "region": "West",
+      "population": 500
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 55,
+      "slug": "mandai-wildlife",
+      "name": "Mandai Wildlife",
+      "region": "North",
+      "population": 500
+    },
+    "overall": 70.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 70,
+        "rawValue": 25,
+        "unit": "stops & stations within 1km",
+        "description": "Average transit connectivity"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 70,
+        "rawValue": 8,
+        "unit": "hawker centres within 1km",
+        "description": "Average food options"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 65,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Average school coverage"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 60,
+        "rawValue": 20,
+        "unit": "% green coverage",
+        "description": "Average green space coverage"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 82,
+        "rawValue": 3.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "Generally safe"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 75,
+        "rawValue": 450000,
+        "unit": "median resale price (S$)",
+        "description": "Average pricing"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 9,
+      "slug": "central-area",
+      "name": "Central Area",
+      "region": "Central",
+      "population": 45000
+    },
+    "overall": 63.33,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 98,
+        "rawValue": 60,
+        "unit": "stops & stations within 1km",
+        "description": "Ultimate connectivity: City Hall, Raffles Place, multiple lines"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 92,
+        "rawValue": 20,
+        "unit": "hawker centres within 1km",
+        "description": "Lau Pa Sat, Maxwell, Chinatown Complex — world-class"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 60,
+        "rawValue": 15,
+        "unit": "schools within 2km",
+        "description": "Fewer schools in the CBD core"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 50,
+        "rawValue": 12,
+        "unit": "% green coverage",
+        "description": "Limited parks but Gardens by the Bay nearby"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 75,
+        "rawValue": 4.0,
+        "unit": "crimes per 10,000 residents",
+        "description": "High footfall area with typical city crime"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 5,
+        "rawValue": 2000000,
+        "unit": "median resale price (S$)",
+        "description": "Extremely expensive, mostly commercial"
+      }
+    ]
+  },
+  {
+    "area": {
+      "id": 40,
+      "slug": "downtown-core",
+      "name": "Downtown Core",
+      "region": "Central",
+      "population": 8000
+    },
+    "overall": 56.67,
+    "dimensions": [
+      {
+        "dimension": "transit",
+        "label": "Transit",
+        "score": 100,
+        "rawValue": 65,
+        "unit": "stops & stations within 1km",
+        "description": "Ultimate connectivity: Raffles Place, Downtown, Telok Ayer"
+      },
+      {
+        "dimension": "food",
+        "label": "Food",
+        "score": 88,
+        "rawValue": 18,
+        "unit": "hawker centres within 1km",
+        "description": "Amoy Street, Telok Ayer, Lau Pa Sat"
+      },
+      {
+        "dimension": "schools",
+        "label": "Schools",
+        "score": 40,
+        "rawValue": 6,
+        "unit": "schools within 2km",
+        "description": "Very few schools in CBD"
+      },
+      {
+        "dimension": "green",
+        "label": "Green Space",
+        "score": 35,
+        "rawValue": 8,
+        "unit": "% green coverage",
+        "description": "Limited parks but Marina Bay area"
+      },
+      {
+        "dimension": "safety",
+        "label": "Safety",
+        "score": 72,
+        "rawValue": 4.5,
+        "unit": "crimes per 10,000 residents",
+        "description": "Business district with typical city crime"
+      },
+      {
+        "dimension": "affordability",
+        "label": "Affordability",
+        "score": 5,
+        "rawValue": 2500000,
+        "unit": "median resale price (S$)",
+        "description": "Most expensive area in Singapore"
+      }
+    ]
+  }
+]
