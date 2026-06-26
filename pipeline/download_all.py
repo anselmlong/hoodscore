@@ -12,12 +12,31 @@ import json
 import os
 import sys
 import time
+from urllib.parse import urlparse
 import requests
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "raw")
 os.makedirs(DATA_DIR, exist_ok=True)
 
 API_BASE = "https://api-open.data.gov.sg/v1/public/api/datasets"
+ALLOWED_DOWNLOAD_HOSTS = {
+    "api-open.data.gov.sg",
+    "data.gov.sg",
+    "s3.ap-southeast-1.amazonaws.com",
+    "s3.ap-southeast-1.wasabisys.com",
+}
+MAX_DOWNLOAD_BYTES = 250 * 1024 * 1024
+REQUIRED_PIPELINE_FILES = [
+    "ura-mp2025-planning-area.geojson",
+    "npc-boundary.geojson",
+    "bus-stops.geojson",
+    "hdb-resale.csv",
+    "schools.csv",
+    "mrt-exits.geojson",
+    "hawker-centres.geojson",
+    "parks-nature-reserves.geojson",
+    "crime-by-npc.csv",
+]
 
 # Dataset definitions: (dataset_id, filename, description)
 DATASETS = [
@@ -36,6 +55,43 @@ DATASETS = [
 SCHOOL_COLLECTION_ID = "457"
 SCHOOL_FILENAME = "schools.csv"
 SCHOOL_DESCRIPTION = "MOE Schools Directory"
+
+
+def is_allowed_download_url(url: str) -> bool:
+    """Restrict downloader redirects to expected public data hosts."""
+    parsed = urlparse(url)
+    return parsed.scheme == "https" and parsed.hostname in ALLOWED_DOWNLOAD_HOSTS
+
+
+def stream_download(url: str, save_path: str) -> None:
+    """Download with a hard byte cap to avoid unexpected large responses."""
+    with requests.get(url, timeout=120, stream=True) as response:
+        response.raise_for_status()
+        total = 0
+        with open(save_path, "wb") as f:
+            for chunk in response.iter_content(chunk_size=1024 * 1024):
+                if not chunk:
+                    continue
+                total += len(chunk)
+                if total > MAX_DOWNLOAD_BYTES:
+                    raise ValueError(f"Download exceeded {MAX_DOWNLOAD_BYTES:,} bytes")
+                f.write(chunk)
+
+
+def check_required_files() -> bool:
+    """Report whether every processor input exists locally."""
+    missing = [
+        filename for filename in REQUIRED_PIPELINE_FILES
+        if not os.path.exists(os.path.join(DATA_DIR, filename))
+    ]
+    if not missing:
+        return True
+
+    print("\nMissing required pipeline inputs:")
+    for filename in missing:
+        print(f"  - {filename}")
+    print("Add these files to data/raw before running the full processing pipeline.")
+    return False
 
 
 def download_dataset(dataset_id: str, filename: str, description: str, max_retries: int = 3) -> bool:
@@ -80,14 +136,14 @@ def download_dataset(dataset_id: str, filename: str, description: str, max_retri
                 print(f"  Response keys: {list(data.keys())}")
                 return False
 
+            if not is_allowed_download_url(download_url):
+                print(f"  Refusing untrusted download URL: {download_url}")
+                return False
+
             print(f"  Download URL: {download_url[:80]}...")
 
             # Step 2: Download the actual file
-            dl_resp = requests.get(download_url, timeout=120)
-            dl_resp.raise_for_status()
-
-            with open(save_path, "wb") as f:
-                f.write(dl_resp.content)
+            stream_download(download_url, save_path)
 
             file_size = os.path.getsize(save_path)
             print(f"  ✅ Downloaded: {file_size:,} bytes")
@@ -164,11 +220,11 @@ def download_schools() -> bool:
 
             csv_url = find_csv_url(data)
             if csv_url:
+                if not is_allowed_download_url(csv_url):
+                    print(f"  Refusing untrusted CSV URL: {csv_url}")
+                    continue
                 print(f"  Found CSV URL: {csv_url[:80]}...")
-                dl_resp = requests.get(csv_url, timeout=120)
-                dl_resp.raise_for_status()
-                with open(save_path, "wb") as f:
-                    f.write(dl_resp.content)
+                stream_download(csv_url, save_path)
                 file_size = os.path.getsize(save_path)
                 print(f"  ✅ Downloaded: {file_size:,} bytes")
                 return True
@@ -220,6 +276,7 @@ def main():
     total_ok = sum(1 for v in results.values() if v == "✅")
     total = len(results)
     print(f"\n  {total_ok}/{total} datasets downloaded successfully.")
+    required_ok = check_required_files()
 
     # List all files
     print(f"\n  Files in {DATA_DIR}:")
@@ -228,7 +285,7 @@ def main():
         size = os.path.getsize(fpath)
         print(f"    {f} ({size:,} bytes)")
 
-    return 0 if total_ok == total else 1
+    return 0 if total_ok == total and required_ok else 1
 
 
 if __name__ == "__main__":

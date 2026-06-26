@@ -14,6 +14,17 @@ import sys
 
 import pandas as pd
 
+try:
+    from process_base import slugify_area_name
+except ImportError:
+    import re
+
+    def slugify_area_name(value: str) -> str:
+        text = str(value).strip().lower().replace("&", "and")
+        text = re.sub(r"[/_]+", "-", text)
+        text = re.sub(r"[^a-z0-9-]+", "-", text)
+        return re.sub(r"-+", "-", text).strip("-")
+
 PIPELINE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(PIPELINE_DIR, "..", "data")
 PROCESSED_DIR = os.path.join(DATA_DIR, "processed")
@@ -186,6 +197,10 @@ def compute_overall(dimensions, weights=None):
 
 def generate_from_processed_csvs():
     """Try to read processed CSV scores and build the JSON."""
+    if not os.path.isdir(PROCESSED_DIR):
+        print("  Processed data directory is missing. Using fallback seed data.")
+        return None
+
     csvs = [f for f in os.listdir(PROCESSED_DIR) if f.endswith(".csv")]
     if not csvs:
         print("  No processed CSV files found. Using fallback seed data.")
@@ -196,11 +211,16 @@ def generate_from_processed_csvs():
     all_scores = {}
     for csv_file in csvs:
         df = pd.read_csv(os.path.join(PROCESSED_DIR, csv_file))
+        required = {"planning_area", "dimension", "score"}
+        missing = required - set(df.columns)
+        if missing:
+            raise ValueError(f"{csv_file} is missing required columns: {sorted(missing)}")
         for _, row in df.iterrows():
             area_name = str(row["planning_area"])
-            if area_name not in all_scores:
-                all_scores[area_name] = []
-            all_scores[area_name].append({
+            area_slug = slugify_area_name(area_name)
+            if area_slug not in all_scores:
+                all_scores[area_slug] = []
+            all_scores[area_slug].append({
                 "dimension": str(row["dimension"]),
                 "label": str(row.get("label", row["dimension"])),
                 "score": float(row["score"]),
@@ -214,9 +234,24 @@ def generate_from_processed_csvs():
 def build_area_scores(dimensions_data):
     """Build the full AreaScore array from dimension data."""
     results = []
+    required_dimensions = {"transit", "food", "schools", "green", "safety", "affordability"}
+    using_processed = dimensions_data is not FALLBACK_DIMENSIONS
+
     for area in FALLBACK_AREAS:
         slug = area["slug"]
-        dims = dimensions_data.get(slug, DEFAULT_DIMENSIONS)
+        dims = dimensions_data.get(slug)
+        if using_processed:
+            if dims is None:
+                raise ValueError(f"Missing processed scores for planning area '{slug}'.")
+            found_dimensions = {d["dimension"] for d in dims}
+            missing_dimensions = required_dimensions - found_dimensions
+            if missing_dimensions:
+                raise ValueError(
+                    f"Planning area '{slug}' is missing dimensions: {sorted(missing_dimensions)}"
+                )
+        else:
+            dims = dims or DEFAULT_DIMENSIONS
+
         overall = compute_overall(dims)
         results.append({
             "area": area,

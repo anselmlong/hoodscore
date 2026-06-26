@@ -17,6 +17,7 @@ export default function HomePage() {
   const [filteredSlugs, setFilteredSlugs] = useState<string[]>([]);
   const [weightsOpen, setWeightsOpen] = useState(false);
   const [compareSlugs, setCompareSlugs] = useState<string[]>([]);
+  const [weightsQuery, setWeightsQuery] = useState<string | null>(null);
 
   const fetchScores = useCallback(async (weights?: string) => {
     setLoading(true);
@@ -40,6 +41,7 @@ export default function HomePage() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const weightsRaw = params.get("weights");
+    setWeightsQuery(weightsRaw);
 
     if (weightsRaw) {
       // Convert "transit:1.5,food:0.8" to JSON for the API
@@ -55,6 +57,10 @@ export default function HomePage() {
 
     const handleWeightsChanged = (e: Event) => {
       const detail = (e as CustomEvent).detail as Record<string, number>;
+      const nextWeights = Object.entries(detail)
+        .map(([k, v]) => `${k}:${v.toFixed(1)}`)
+        .join(",");
+      setWeightsQuery(nextWeights);
       fetchScores(JSON.stringify(detail));
     };
 
@@ -68,7 +74,7 @@ export default function HomePage() {
 
   const handleCompare = useCallback((slug: string, checked: boolean) => {
     setCompareSlugs((prev) =>
-      checked ? [...prev, slug] : prev.filter((s) => s !== slug)
+      checked ? Array.from(new Set([...prev, slug])) : prev.filter((s) => s !== slug)
     );
   }, []);
 
@@ -86,7 +92,7 @@ export default function HomePage() {
           <div className="flex items-center gap-3">
             {compareSlugs.length > 0 && (
               <a
-                href={`/compare?areas=${compareSlugs.join(",")}`}
+                href={`/compare?areas=${compareSlugs.join(",")}${weightsQuery ? `&weights=${encodeURIComponent(weightsQuery)}` : ""}`}
                 className="px-3 py-1.5 text-xs font-medium text-white bg-civic-600 rounded-lg hover:bg-civic-700 transition-colors no-underline"
               >
                 Compare ({compareSlugs.length})

@@ -93,6 +93,24 @@ class HDBProcessor(DimensionProcessor):
         hdb_df[town_col] = hdb_df[town_col].astype(str).str.strip()
         hdb_df[price_col] = pd.to_numeric(hdb_df[price_col], errors="coerce")
 
+        month_col = None
+        for col in ["month", "Month", "transaction_month", "sale_month"]:
+            if col in hdb_df.columns:
+                month_col = col
+                break
+
+        if month_col:
+            hdb_df[month_col] = pd.to_datetime(hdb_df[month_col], errors="coerce")
+            latest_month = hdb_df[month_col].max()
+            if pd.notna(latest_month):
+                cutoff = latest_month - pd.DateOffset(months=24)
+                before_count = len(hdb_df)
+                hdb_df = hdb_df[hdb_df[month_col] >= cutoff].copy()
+                print(
+                    f"  Filtered to transactions from {cutoff.date()} onward "
+                    f"({len(hdb_df)}/{before_count} rows)."
+                )
+
         if area_col:
             hdb_df[area_col] = pd.to_numeric(hdb_df[area_col], errors="coerce")
             # Compute price per sqm

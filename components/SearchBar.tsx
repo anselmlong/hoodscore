@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import type { AreaScore, Dimension } from "@/types";
 
 const DIMENSION_FILTERS: { key: Dimension; label: string }[] = [
@@ -16,11 +17,12 @@ const DIMENSION_FILTERS: { key: Dimension; label: string }[] = [
 interface SearchBarProps {
   areas: AreaScore[];
   onFilterChange?: (filteredSlugs: string[]) => void;
+  onSelectArea?: (slug: string) => void;
   showPills?: boolean;
   placeholder?: string;
 }
 
-export default function SearchBar({ areas, onFilterChange, showPills = true, placeholder }: SearchBarProps) {
+export default function SearchBar({ areas, onFilterChange, onSelectArea, showPills = true, placeholder }: SearchBarProps) {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [activeDimension, setActiveDimension] = useState<Dimension | null>(null);
@@ -79,7 +81,11 @@ export default function SearchBar({ areas, onFilterChange, showPills = true, pla
   const handleSelect = (slug: string) => {
     setShowDropdown(false);
     setQuery("");
-    router.push(`/area/${slug}`);
+    if (onSelectArea) {
+      onSelectArea(slug);
+    } else {
+      router.push(`/area/${slug}`);
+    }
   };
 
   return (
@@ -87,18 +93,17 @@ export default function SearchBar({ areas, onFilterChange, showPills = true, pla
       {/* Search input */}
       <div className="relative">
         <div className="relative">
-          <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-civic-400"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
+          <MagnifyingGlass
+            className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-civic-400"
+            aria-hidden="true"
+          />
           <input
             ref={inputRef}
             type="text"
+            role="combobox"
+            aria-expanded={showDropdown && displayedAreas.length > 0}
+            aria-controls="area-search-results"
+            aria-autocomplete="list"
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
@@ -106,7 +111,7 @@ export default function SearchBar({ areas, onFilterChange, showPills = true, pla
               if (activeDimension) setActiveDimension(null);
             }}
             onFocus={() => setShowDropdown(true)}
-            placeholder={placeholder ?? "Search planning areas…"}
+            placeholder={placeholder ?? "Search planning areas"}
             className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-civic-800 placeholder:text-civic-400"
           />
         </div>
@@ -115,11 +120,15 @@ export default function SearchBar({ areas, onFilterChange, showPills = true, pla
         {showDropdown && displayedAreas.length > 0 && (
           <div
             ref={dropdownRef}
+            id="area-search-results"
+            role="listbox"
             className="absolute z-20 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-sm max-h-60 overflow-y-auto"
           >
             {displayedAreas.map((a) => (
               <button
                 key={a.area.slug}
+                role="option"
+                aria-selected="false"
                 onClick={() => handleSelect(a.area.slug)}
                 className="w-full text-left px-3 py-2 text-sm text-civic-700 hover:bg-civic-50 transition-colors flex items-center justify-between"
               >

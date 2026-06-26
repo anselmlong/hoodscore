@@ -3,9 +3,9 @@
 process_safety.py — Safety dimension processor.
 
 Downloads Crime by NPC (CSV) + NPC Boundary (GEOJSON).
-Spatial join NPC boundaries to planning areas. For each planning area,
-compute total crimes per 10,000 residents. Invert the score so
-high crime = low safety score (lower crime = higher safety).
+Intersects NPC boundaries with planning areas and apportions crimes by
+overlap area. For each planning area, compute crimes per sq km. Invert
+the score so high crime = low safety score.
 """
 
 import os
@@ -17,19 +17,20 @@ from process_base import (
     DimensionProcessor,
     RAW_DIR,
     PROCESSED_DIR,
+    compute_area_areas,
     load_planning_areas,
     normalise_scores,
 )
 
 
 class SafetyProcessor(DimensionProcessor):
-    """Safety score: crimes per 10,000 residents (inverted)."""
+    """Safety score: crimes per sq km (inverted)."""
 
     def __init__(self):
         super().__init__(
             dimension_name="safety",
             label="Safety",
-            unit="crimes per 10,000 residents",
+            unit="crimes per sq km",
         )
 
     def download(self) -> None:
@@ -156,39 +157,23 @@ class SafetyProcessor(DimensionProcessor):
         if npc_merged.crs != planning_areas.crs:
             npc_merged = npc_merged.to_crs(planning_areas.crs)
 
-        # Spatial join: map each NPC to the planning areas it overlaps
-        print("  Spatial joining NPCs to planning areas...")
-        joined = gpd.sjoin(
-            npc_merged[["npc_name", "total_crimes", "geometry"]],
-            planning_areas[["name", "geometry"]],
-            predicate="intersects",
-            how="inner",
-        )
-
-        # For NPCs that overlap multiple areas, apportion crimes by overlap area
-        print("  Apportioning crimes by area overlap...")
-        # Ensure both are in UTM for area computation
+        # For NPCs that overlap multiple areas, apportion crimes by true clipped overlap area.
+        print("  Apportioning crimes by true polygon overlap...")
         utm_crs = "EPSG:32648"
-        joined_utm = joined.to_crs(utm_crs)
-        joined_utm["overlap_area"] = joined_utm.geometry.area
+        npc_utm = npc_merged[["npc_name", "total_crimes", "geometry"]].to_crs(utm_crs)
+        areas_utm = planning_areas[["name", "geometry"]].to_crs(utm_crs)
 
-        # For each NPC-planning area pair, compute fraction of NPC area
-        npc_total_area = joined_utm.groupby("npc_name")["overlap_area"].transform("sum")
-        joined_utm["area_fraction"] = joined_utm["overlap_area"] / npc_total_area.replace(0, pd.NA)
-        joined_utm["area_fraction"] = joined_utm["area_fraction"].fillna(
-            1.0 / joined_utm.groupby("npc_name")["overlap_area"].transform("count")
-        )
-        joined_utm["apportioned_crimes"] = joined_utm["total_crimes"] * joined_utm["area_fraction"]
+        overlap = gpd.overlay(npc_utm, areas_utm, how="intersection", keep_geom_type=False)
+        overlap["overlap_area"] = overlap.geometry.area
+        npc_total_area = overlap.groupby("npc_name")["overlap_area"].transform("sum")
+        overlap["area_fraction"] = (overlap["overlap_area"] / npc_total_area.replace(0, pd.NA)).fillna(0)
+        overlap["apportioned_crimes"] = overlap["total_crimes"] * overlap["area_fraction"]
 
         # Sum crimes per planning area
-        crime_by_area = joined_utm.groupby("name")["apportioned_crimes"].sum().reset_index()
+        crime_by_area = overlap.groupby("name")["apportioned_crimes"].sum().reset_index()
         crime_by_area.columns = ["name", "total_crimes"]
 
-        # Try to find population data — use area as proxy if not available
-        # Compute crimes per 10,000 "residents" using area (sq km) as a rough proxy
-        # Since we don't have population data, use crimes per sq km
         print("  Computing safety score (crimes per sq km, inverted)...")
-        from process_base import compute_area_areas
         area_sizes = compute_area_areas(planning_areas)
 
         safety_data = planning_areas[["name"]].drop_duplicates().merge(

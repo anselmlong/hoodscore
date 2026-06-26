@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { CaretLeft } from "@phosphor-icons/react";
 import ScoreCard from "@/components/ScoreCard";
 import WeightQuiz from "@/components/WeightQuiz";
 import type { AreaScore, Dimension } from "@/types";
@@ -72,12 +73,14 @@ export default function AreaDetailPage() {
   const handleCompare = useCallback(() => {
     if (!area) return;
     try {
-      const existing = new URLSearchParams(window.location.search).get("compare");
+      const params = new URLSearchParams(window.location.search);
+      const existing = params.get("areas");
       const slugs = existing ? existing.split(",") : [];
       if (!slugs.includes(area.area.slug)) {
         slugs.push(area.area.slug);
       }
-      const url = `/compare?areas=${slugs.join(",")}`;
+      params.set("areas", slugs.join(","));
+      const url = `/compare?${params.toString()}`;
       setToastMsg(`Added ${area.area.name} to comparison`);
       setTimeout(() => setToastMsg(null), 2500);
 
@@ -115,7 +118,7 @@ export default function AreaDetailPage() {
             onClick={() => router.push("/")}
             className="mt-3 px-4 py-2 text-sm text-civic-600 border border-gray-200 rounded-lg hover:bg-civic-50"
           >
-            ← Back to home
+            Back to home
           </button>
         </div>
       </div>
@@ -130,9 +133,7 @@ export default function AreaDetailPage() {
           onClick={() => router.push("/")}
           className="flex items-center gap-1 text-sm text-civic-500 hover:text-civic-700 mb-4"
         >
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
+          <CaretLeft className="h-4 w-4" aria-hidden="true" />
           Back
         </button>
 

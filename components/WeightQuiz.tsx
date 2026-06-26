@@ -1,15 +1,24 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useEffect, useId, useRef, useState, useCallback } from "react";
+import {
+  Bus,
+  ForkKnife,
+  GraduationCap,
+  House,
+  Park,
+  ShieldCheck,
+  X,
+} from "@phosphor-icons/react";
 import type { Dimension } from "@/types";
 
-const DIMENSIONS: { key: Dimension; emoji: string; label: string }[] = [
-  { key: "transit", emoji: "🚇", label: "Transit" },
-  { key: "food", emoji: "🍜", label: "Food" },
-  { key: "schools", emoji: "📚", label: "Schools" },
-  { key: "green", emoji: "🌳", label: "Green Space" },
-  { key: "safety", emoji: "🛡️", label: "Safety" },
-  { key: "affordability", emoji: "🏠", label: "Affordability" },
+const DIMENSIONS = [
+  { key: "transit", icon: Bus, label: "Transit" },
+  { key: "food", icon: ForkKnife, label: "Food" },
+  { key: "schools", icon: GraduationCap, label: "Schools" },
+  { key: "green", icon: Park, label: "Green space" },
+  { key: "safety", icon: ShieldCheck, label: "Safety" },
+  { key: "affordability", icon: House, label: "Affordability" },
 ];
 
 const DEFAULT_WEIGHTS: Record<string, number> = {
@@ -30,13 +39,65 @@ interface WeightQuizProps {
 export default function WeightQuiz({ isOpen, onClose, currentWeights }: WeightQuizProps) {
   const [weights, setWeights] = useState<Record<string, number>>(currentWeights ?? { ...DEFAULT_WEIGHTS });
   const [mode, setMode] = useState<"quick" | "expert">("quick");
+  const titleId = useId();
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    previousFocusRef.current = document.activeElement as HTMLElement | null;
+    const focusableSelector = [
+      "button:not([disabled])",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "textarea:not([disabled])",
+      "a[href]",
+      "[tabindex]:not([tabindex='-1'])",
+    ].join(",");
+
+    const focusFirst = () => {
+      const first = dialogRef.current?.querySelector<HTMLElement>(focusableSelector);
+      first?.focus();
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialogRef.current) return;
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(focusableSelector)
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    window.setTimeout(focusFirst, 0);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      previousFocusRef.current?.focus();
+    };
+  }, [isOpen, onClose]);
 
   const handleReset = useCallback(() => {
     setWeights({ ...DEFAULT_WEIGHTS });
   }, []);
 
   const handleApply = useCallback(() => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(window.location.search);
     const weightStr = Object.entries(weights)
       .map(([k, v]) => `${k}:${v.toFixed(1)}`)
       .join(",");
@@ -55,18 +116,27 @@ export default function WeightQuiz({ isOpen, onClose, currentWeights }: WeightQu
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
-      <div className="bg-white rounded-xl shadow-lg max-w-md w-full mx-4 max-h-[85vh] overflow-y-auto">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-civic-900/45 px-4"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="bg-white rounded-lg shadow-[0_24px_80px_rgba(16,42,67,0.22)] max-w-md w-full max-h-[85vh] overflow-y-auto border border-civic-100"
+      >
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-civic-800">Customise Weights</h2>
+          <h2 id={titleId} className="text-lg font-semibold text-civic-800">Customise weights</h2>
           <button
             onClick={onClose}
             className="p-1 text-civic-400 hover:text-civic-600 rounded-md hover:bg-gray-100"
             aria-label="Close"
           >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+              <X className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
 
@@ -97,12 +167,14 @@ export default function WeightQuiz({ isOpen, onClose, currentWeights }: WeightQu
         {/* Sliders */}
         <div className="p-4 space-y-4">
           {DIMENSIONS.map((dim) => {
+            const Icon = dim.icon;
             const val = weights[dim.key] ?? 1.0;
             return (
               <div key={dim.key}>
                 <div className="flex items-center justify-between mb-1">
-                  <label className="text-sm text-civic-700">
-                    {dim.emoji} {dim.label}
+                  <label className="flex items-center gap-2 text-sm text-civic-700">
+                    <Icon className="h-4 w-4 text-emerald-700" weight="duotone" aria-hidden="true" />
+                    {dim.label}
                   </label>
                   <span className="text-sm font-mono text-civic-500">{val.toFixed(1)}x</span>
                 </div>

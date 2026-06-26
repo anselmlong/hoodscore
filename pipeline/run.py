@@ -5,12 +5,12 @@ run.py — Orchestrator for the full HoodScore data pipeline.
 Single entry point that:
   1. Runs download_all.py to fetch all datasets
   2. Runs each process_*.py to compute dimension scores
-  3. Runs seed_db.py to upsert into Vercel Postgres
+  3. Runs generate_scores_json.py for the Next.js app
 
 Usage:
     python run.py              # Full pipeline
     python run.py --skip-download   # Skip download step
-    python run.py --skip-seed       # Skip database seeding
+    python run.py --skip-generate   # Skip static JSON generation
     python run.py --dimension transit  # Run only one dimension
 """
 
@@ -86,7 +86,7 @@ def main():
     # Parse arguments
     args = set(sys.argv[1:])
     skip_download = "--skip-download" in args
-    skip_seed = "--skip-seed" in args
+    skip_generate = "--skip-generate" in args
     single_dimension = None
     for arg in args:
         if arg.startswith("--dimension="):
@@ -98,7 +98,7 @@ def main():
     print("  🏡 HoodScore Data Pipeline")
     print("=" * 60)
     print(f"  Pipeline directory: {PIPELINE_DIR}")
-    print(f"  Options: skip_download={skip_download}, skip_seed={skip_seed}, dimension={single_dimension}")
+    print(f"  Options: skip_download={skip_download}, skip_generate={skip_generate}, dimension={single_dimension}")
     print()
 
     # Step 1: Download
@@ -123,16 +123,18 @@ def main():
             print(f"\n  ❌ Processing failed at {mod_name}. Aborting.")
             return 1
 
-    # Step 3: Seed database
-    if not skip_seed and not single_dimension:
+    # Step 3: Generate static app data
+    if not skip_generate and not single_dimension:
         print("=" * 60)
-        print("  STEP 3: Seed database")
+        print("  STEP 3: Generate static app data")
         print("=" * 60)
-        run_module("seed_db")
+        if not run_module("generate_scores_json"):
+            print("\n  ❌ Static data generation failed. Aborting.")
+            return 1
     elif single_dimension:
-        print("  ⏭️  Skipping seed for single-dimension run.")
+        print("  ⏭️  Skipping static JSON generation for single-dimension run.")
     else:
-        print("  ⏭️  Skipping database seed.")
+        print("  ⏭️  Skipping static JSON generation.")
 
     print(f"\n{'='*60}")
     print("  ✅ Pipeline complete!")

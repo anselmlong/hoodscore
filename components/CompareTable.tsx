@@ -1,5 +1,6 @@
 "use client";
 
+import { Check, Trophy } from "@phosphor-icons/react";
 import type { AreaScore, Dimension } from "@/types";
 
 const DIMENSIONS: Dimension[] = ["transit", "food", "schools", "green", "safety", "affordability"];
@@ -14,9 +15,16 @@ function scoreColor(score: number): string {
   return "#dc2626";
 }
 
-function ScoreBar({ score, isWinner }: { score: number; isWinner: boolean }) {
+function ScoreBar({ score, isWinner, label }: { score: number; isWinner: boolean; label: string }) {
   return (
-    <div className="flex items-center gap-2">
+    <div
+      className="flex items-center gap-2"
+      role="meter"
+      aria-label={`${label} score`}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={Math.round(score)}
+    >
       <div className="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden">
         <div
           className="h-full rounded-full transition-all"
@@ -107,7 +115,7 @@ export default function CompareTable({ areas }: CompareTableProps) {
                     {Math.round(a.overall)}
                   </span>
                   {a.overall === overallMax && (
-                    <span className="text-xs text-emerald-600 font-medium">🥇</span>
+                    <Trophy className="h-4 w-4 text-emerald-700" weight="fill" aria-label="Highest overall score" />
                   )}
                 </div>
               </td>
@@ -126,8 +134,8 @@ export default function CompareTable({ areas }: CompareTableProps) {
                   return (
                     <td key={a.area.slug} className="px-4 py-3">
                       <div className="flex items-center gap-2">
-                        <ScoreBar score={dim?.score ?? 0} isWinner={isWinner} />
-                        {isWinner && <span className="text-xs text-emerald-600 shrink-0">✓</span>}
+                        <ScoreBar score={dim?.score ?? 0} isWinner={isWinner} label={`${a.area.name} ${label}`} />
+                        {isWinner && <Check className="h-4 w-4 shrink-0 text-emerald-700" weight="bold" aria-label="Highest dimension score" />}
                       </div>
                       {dim?.rawValue !== null && dim?.rawValue !== undefined && (
                         <p className="text-xs text-civic-400 mt-0.5">

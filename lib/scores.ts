@@ -1,4 +1,4 @@
-import type { AreaScore, PlanningArea } from "../types";
+import type { AreaScore, Dimension, PlanningArea } from "../types";
 
 // Import static JSON data (bundled at build time by Next.js)
 import scoresData from "../data/scores.json";
@@ -8,7 +8,20 @@ const scores = scoresData as AreaScore[];
 const areas = areasData as PlanningArea[];
 
 // Default equal weight for each dimension
-const DEFAULT_WEIGHTS: Record<string, number> = {
+export const DIMENSIONS: Dimension[] = [
+  "transit",
+  "food",
+  "schools",
+  "green",
+  "safety",
+  "affordability",
+];
+
+const DIMENSION_SET = new Set<string>(DIMENSIONS);
+
+export const MAX_COMPARE_AREAS = 8;
+
+const DEFAULT_WEIGHTS: Record<Dimension, number> = {
   transit: 1.0,
   food: 1.0,
   schools: 1.0,
@@ -29,7 +42,11 @@ export function computeOverall(
   let weightedSum = 0;
 
   for (const d of dimensions) {
-    const weight = w[d.dimension] ?? 1.0;
+    const rawWeight = w[d.dimension] ?? 1.0;
+    const weight =
+      typeof rawWeight === "number" && Number.isFinite(rawWeight)
+        ? rawWeight
+        : 1.0;
     weightedSum += d.score * weight;
     totalWeight += weight;
   }
@@ -69,9 +86,62 @@ export function compareAreas(
   slugs: string[],
   weights?: Record<string, number>
 ): AreaScore[] {
-  return slugs
+  const uniqueSlugs = Array.from(new Set(slugs)).slice(0, MAX_COMPARE_AREAS);
+  return uniqueSlugs
     .map((slug) => getAreaScore(slug, weights))
     .filter((s): s is AreaScore => s !== undefined);
+}
+
+export function getKnownSlugs(): Set<string> {
+  return new Set(scores.map((s) => s.area.slug));
+}
+
+export function validateSlugs(slugs: unknown): {
+  ok: true;
+  slugs: string[];
+} | {
+  ok: false;
+  error: string;
+} {
+  if (!Array.isArray(slugs) || slugs.length === 0) {
+    return { ok: false, error: "Missing or invalid 'slugs' array in request body" };
+  }
+
+  if (slugs.some((slug) => typeof slug !== "string" || slug.trim().length === 0)) {
+    return { ok: false, error: "All entries in 'slugs' must be non-empty strings" };
+  }
+
+  const uniqueSlugs = Array.from(new Set(slugs.map((slug) => slug.trim())));
+  if (uniqueSlugs.length > MAX_COMPARE_AREAS) {
+    return { ok: false, error: `Compare supports up to ${MAX_COMPARE_AREAS} areas` };
+  }
+
+  const knownSlugs = getKnownSlugs();
+  const unknown = uniqueSlugs.filter((slug) => !knownSlugs.has(slug));
+  if (unknown.length > 0) {
+    return { ok: false, error: `Unknown planning area slug: ${unknown.join(", ")}` };
+  }
+
+  return { ok: true, slugs: uniqueSlugs };
+}
+
+export function sanitizeWeights(
+  raw: unknown
+): Record<Dimension, number> | undefined {
+  if (raw === undefined || raw === null) return undefined;
+  if (typeof raw !== "object" || Array.isArray(raw)) return undefined;
+
+  const result = { ...DEFAULT_WEIGHTS };
+  let hasWeight = false;
+  for (const [key, value] of Object.entries(raw)) {
+    if (!DIMENSION_SET.has(key)) return undefined;
+    if (typeof value !== "number" || !Number.isFinite(value)) return undefined;
+    if (value < 0 || value > 3) return undefined;
+    result[key as Dimension] = Math.round(value * 10) / 10;
+    hasWeight = true;
+  }
+
+  return hasWeight ? result : undefined;
 }
 
 /**
@@ -83,11 +153,9 @@ export function parseWeightsParam(
   if (!raw) return undefined;
   try {
     const parsed = JSON.parse(raw);
-    if (typeof parsed === "object" && parsed !== null) {
-      return parsed as Record<string, number>;
-    }
+    return sanitizeWeights(parsed);
   } catch {
-    // Invalid JSON — ignore
+    // Invalid JSON: ignore.
   }
   return undefined;
 }

@@ -16,6 +16,7 @@ export default function ExplorePage() {
   const [filteredSlugs, setFilteredSlugs] = useState<string[]>([]);
   const [weightsOpen, setWeightsOpen] = useState(false);
   const [compareSlugs, setCompareSlugs] = useState<string[]>([]);
+  const [weightsQuery, setWeightsQuery] = useState<string | null>(null);
 
   const fetchScores = useCallback(async (weights?: string) => {
     setLoading(true);
@@ -38,6 +39,7 @@ export default function ExplorePage() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const weightsRaw = params.get("weights");
+    setWeightsQuery(weightsRaw);
 
     if (weightsRaw) {
       const wObj: Record<string, number> = {};
@@ -52,6 +54,10 @@ export default function ExplorePage() {
 
     const handler = (e: Event) => {
       const detail = (e as CustomEvent).detail as Record<string, number>;
+      const nextWeights = Object.entries(detail)
+        .map(([k, v]) => `${k}:${v.toFixed(1)}`)
+        .join(",");
+      setWeightsQuery(nextWeights);
       fetchScores(JSON.stringify(detail));
     };
     window.addEventListener("weights-changed", handler);
@@ -64,7 +70,7 @@ export default function ExplorePage() {
 
   const handleCompare = useCallback((slug: string, checked: boolean) => {
     setCompareSlugs((prev) =>
-      checked ? [...prev, slug] : prev.filter((s) => s !== slug)
+      checked ? Array.from(new Set([...prev, slug])) : prev.filter((s) => s !== slug)
     );
   }, []);
 
@@ -79,7 +85,7 @@ export default function ExplorePage() {
         <div className="flex items-center gap-3">
           {compareSlugs.length > 0 && (
             <a
-              href={`/compare?areas=${compareSlugs.join(",")}`}
+              href={`/compare?areas=${compareSlugs.join(",")}${weightsQuery ? `&weights=${encodeURIComponent(weightsQuery)}` : ""}`}
               className="px-3 py-1.5 text-xs font-medium text-white bg-civic-600 rounded-lg hover:bg-civic-700 transition-colors no-underline"
             >
               Compare ({compareSlugs.length})

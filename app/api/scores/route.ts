@@ -15,6 +15,12 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const weightsRaw = searchParams.get("weights");
     const weights = parseWeightsParam(weightsRaw);
+    if (weightsRaw && !weights) {
+      return NextResponse.json(
+        { error: "Invalid weights. Use known dimensions with numeric values from 0 to 3." },
+        { status: 400 }
+      );
+    }
 
     const areas = getAllScores(weights);
 

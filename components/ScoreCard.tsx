@@ -36,7 +36,14 @@ export default function ScoreCard({ dimension, score, rawValue, unit, label }: S
       </div>
 
       {/* Colour bar */}
-      <div className="w-full h-2 rounded-full bg-gray-100 overflow-hidden">
+      <div
+        className="w-full h-2 rounded-full bg-gray-100 overflow-hidden"
+        role="meter"
+        aria-label={`${label} score`}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(score)}
+      >
         <div
           className={`h-full rounded-full transition-all duration-300 ${scoreBgClass(score)}`}
           style={{ width: `${score}%` }}

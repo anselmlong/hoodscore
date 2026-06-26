@@ -5,3 +5,4 @@ node_modules/
 *.csv
 __pycache__/
 *.pyc
+tsconfig.tsbuildinfo

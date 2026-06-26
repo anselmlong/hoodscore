@@ -27,8 +27,8 @@ interface GeoFeature {
   type: "Feature";
   properties: { name: string; slug: string; region: string };
   geometry: {
-    type: "Polygon";
-    coordinates: number[][][];
+    type: "Polygon" | "MultiPolygon";
+    coordinates: number[][][] | number[][][][];
   };
 }
 
@@ -38,10 +38,15 @@ function MapContent({ areas, geoData }: { areas: AreaScore[]; geoData: GeoFeatur
 
   const scoreLookup: Record<string, number> = {};
   areas.forEach((a) => { scoreLookup[a.area.slug] = a.overall; });
+  const visibleSlugs = new Set(areas.map((a) => a.area.slug));
+  const visibleGeoData = geoData.filter((feature) => visibleSlugs.has(feature.properties.slug));
+  const layerKey = areas
+    .map((a) => `${a.area.slug}:${a.overall.toFixed(2)}`)
+    .join("|");
 
   const geoJson = {
     type: "FeatureCollection" as const,
-    features: geoData,
+    features: visibleGeoData,
   };
 
   return (
@@ -51,12 +56,12 @@ function MapContent({ areas, geoData }: { areas: AreaScore[]; geoData: GeoFeatur
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <GeoJSON
-        key={areas.length}
+        key={layerKey}
         data={geoJson}
         style={(feature) => {
           const slug = feature?.properties?.slug;
           const overall = slug ? scoreLookup[slug] : undefined;
-          const score = overall ?? 50;
+          const score = overall ?? 0;
           return {
             fillColor: scoreColor(score),
             weight: 1,
@@ -99,15 +104,15 @@ function MapContent({ areas, geoData }: { areas: AreaScore[]; geoData: GeoFeatur
           <p className="font-semibold text-civic-700 mb-1">Score</p>
           <div className="flex items-center gap-2">
             <span className="inline-block w-3 h-3 rounded-sm" style={{ backgroundColor: "#dc2626" }} />
-            <span className="text-civic-500">0–39</span>
+            <span className="text-civic-500">0-39</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="inline-block w-3 h-3 rounded-sm" style={{ backgroundColor: "#d97706" }} />
-            <span className="text-civic-500">40–69</span>
+            <span className="text-civic-500">40-69</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="inline-block w-3 h-3 rounded-sm" style={{ backgroundColor: "#059669" }} />
-            <span className="text-civic-500">70–100</span>
+            <span className="text-civic-500">70-100</span>
           </div>
         </div>
       </div>
@@ -137,7 +142,7 @@ export default function Map({ areas, loading }: MapProps) {
       <div className="h-[70vh] bg-civic-50 rounded-lg border border-gray-200 flex items-center justify-center">
         <div className="flex flex-col items-center gap-2">
           <div className="w-6 h-6 border-2 border-civic-300 border-t-emerald-500 rounded-full animate-spin" />
-          <span className="text-sm text-civic-400">Loading map…</span>
+          <span className="text-sm text-civic-400">Loading map</span>
         </div>
       </div>
     );
@@ -156,7 +161,7 @@ export default function Map({ areas, loading }: MapProps) {
       <div className="h-[70vh] bg-civic-50 rounded-lg border border-gray-200 flex items-center justify-center">
         <div className="flex flex-col items-center gap-2">
           <div className="w-6 h-6 border-2 border-civic-300 border-t-emerald-500 rounded-full animate-spin" />
-          <span className="text-sm text-civic-400">Loading boundaries…</span>
+          <span className="text-sm text-civic-400">Loading boundaries</span>
         </div>
       </div>
     );

@@ -2,30 +2,45 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { HouseLine, List, X } from "@phosphor-icons/react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const navLinks = [
+    { href: "/explore", label: "Explore" },
+    { href: "/compare", label: "Compare" },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-civic-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <Link href="/" className="flex items-center gap-2 text-civic-800 font-semibold text-lg no-underline">
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
+            <HouseLine className="h-6 w-6" weight="duotone" aria-hidden="true" />
             Hood Score
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden sm:flex items-center gap-6">
-            <Link href="/explore" className="text-sm text-civic-600 hover:text-civic-900 transition-colors no-underline">
-              Explore
-            </Link>
-            <Link href="/compare" className="text-sm text-civic-600 hover:text-civic-900 transition-colors no-underline">
-              Compare
-            </Link>
+          <nav className="hidden sm:flex items-center gap-1" aria-label="Primary navigation">
+            {navLinks.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`rounded-md px-3 py-1.5 text-sm font-medium no-underline transition-colors ${
+                    active
+                      ? "bg-civic-50 text-civic-900"
+                      : "text-civic-600 hover:bg-civic-50 hover:text-civic-900"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Mobile hamburger */}
@@ -33,36 +48,38 @@ export default function Header() {
             className="sm:hidden p-2 text-civic-600 hover:text-civic-900 rounded-md hover:bg-gray-100"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-primary-navigation"
           >
             {menuOpen ? (
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
+              <X className="h-5 w-5" aria-hidden="true" />
             ) : (
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
+              <List className="h-5 w-5" aria-hidden="true" />
             )}
           </button>
         </div>
 
         {/* Mobile dropdown */}
         {menuOpen && (
-          <nav className="sm:hidden pb-3 border-t border-gray-100 pt-2">
-            <Link
-              href="/explore"
-              className="block py-2 text-sm text-civic-600 hover:text-civic-900 no-underline"
-              onClick={() => setMenuOpen(false)}
-            >
-              Explore
-            </Link>
-            <Link
-              href="/compare"
-              className="block py-2 text-sm text-civic-600 hover:text-civic-900 no-underline"
-              onClick={() => setMenuOpen(false)}
-            >
-              Compare
-            </Link>
+          <nav id="mobile-primary-navigation" className="sm:hidden pb-3 border-t border-gray-100 pt-2" aria-label="Primary navigation">
+            {navLinks.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`block rounded-md px-2 py-2 text-sm no-underline ${
+                    active
+                      ? "bg-civic-50 text-civic-900"
+                      : "text-civic-600 hover:text-civic-900"
+                  }`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
         )}
       </div>

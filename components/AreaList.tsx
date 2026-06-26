@@ -83,7 +83,12 @@ export default function AreaList({ areas, onCompare, compareSlugs }: AreaListPro
     }
   };
 
-  const SortIcon = ({ col }: { col: SortKey }) => {
+  const sortLabel = (col: SortKey) => {
+    if (sortKey !== col) return "none";
+    return sortDir === "desc" ? "descending" : "ascending";
+  };
+
+  const renderSortIcon = (col: SortKey) => {
     if (sortKey !== col) return <span className="text-civic-300 ml-1">↕</span>;
     return <span className="text-civic-600 ml-1">{sortDir === "desc" ? "↓" : "↑"}</span>;
   };
@@ -94,26 +99,38 @@ export default function AreaList({ areas, onCompare, compareSlugs }: AreaListPro
         <thead>
           <tr className="bg-civic-50 border-b border-gray-200">
             {onCompare && <th className="w-8 px-2 py-2"></th>}
-            <th
-              className="px-3 py-2 text-left font-semibold text-civic-600 cursor-pointer select-none whitespace-nowrap"
-              onClick={() => handleSort("rank")}
-            >
-              #<SortIcon col="rank" />
+            <th className="px-3 py-2 text-left font-semibold text-civic-600 whitespace-nowrap" aria-sort={sortLabel("rank") as "ascending" | "descending" | "none" | "other"}>
+              <button
+                type="button"
+                onClick={() => handleSort("rank")}
+                className="inline-flex items-center font-semibold"
+              >
+                #{renderSortIcon("rank")}
+              </button>
             </th>
             <th className="px-3 py-2 text-left font-semibold text-civic-600 whitespace-nowrap">Area</th>
-            <th
-              className="px-3 py-2 text-left font-semibold text-civic-600 cursor-pointer select-none whitespace-nowrap"
-              onClick={() => handleSort("overall")}
-            >
-              Score<SortIcon col="overall" />
+            <th className="px-3 py-2 text-left font-semibold text-civic-600 whitespace-nowrap" aria-sort={sortLabel("overall") as "ascending" | "descending" | "none" | "other"}>
+              <button
+                type="button"
+                onClick={() => handleSort("overall")}
+                className="inline-flex items-center font-semibold"
+              >
+                Score{renderSortIcon("overall")}
+              </button>
             </th>
             {DIMENSIONS.map((d) => (
               <th
                 key={d}
-                className="hidden md:table-cell px-2 py-2 text-left font-semibold text-civic-600 cursor-pointer select-none whitespace-nowrap text-xs"
-                onClick={() => handleSort(d)}
+                className="hidden md:table-cell px-2 py-2 text-left font-semibold text-civic-600 whitespace-nowrap text-xs"
+                aria-sort={sortLabel(d) as "ascending" | "descending" | "none" | "other"}
               >
-                {d.charAt(0).toUpperCase() + d.slice(1)}<SortIcon col={d} />
+                <button
+                  type="button"
+                  onClick={() => handleSort(d)}
+                  className="inline-flex items-center font-semibold"
+                >
+                  {d.charAt(0).toUpperCase() + d.slice(1)}{renderSortIcon(d)}
+                </button>
               </th>
             ))}
             <th className="hidden lg:table-cell px-2 py-2 text-left font-semibold text-civic-600 whitespace-nowrap text-xs">
@@ -123,7 +140,7 @@ export default function AreaList({ areas, onCompare, compareSlugs }: AreaListPro
         </thead>
         <tbody>
           {sortedAreas.map((a, idx) => {
-            const rank = sortKey === "rank" && sortDir === "asc" ? idx + 1 : sortedAreas.length - idx;
+            const rank = idx + 1;
             return (
               <tr
                 key={a.area.slug}
@@ -149,7 +166,7 @@ export default function AreaList({ areas, onCompare, compareSlugs }: AreaListPro
                   const dim = a.dimensions.find((ds) => ds.dimension === d);
                   return (
                     <td key={d} className={`hidden md:table-cell px-2 py-2 ${scoreColor(dim?.score ?? 0)}`}>
-                      {dim ? Math.round(dim.score) : "—"}
+                      {dim ? Math.round(dim.score) : "N/A"}
                     </td>
                   );
                 })}

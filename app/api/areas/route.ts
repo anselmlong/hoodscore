@@ -4,8 +4,8 @@ import { getAreaScore, parseWeightsParam, getAllPlanningAreas } from "@/lib/scor
 /**
  * GET /api/areas
  *
- * With ?slug=ang-mo-kio — returns a single AreaScore with dimension breakdown.
- * Without slug — returns basic info for all 55 planning areas.
+ * With ?slug=ang-mo-kio: returns a single AreaScore with dimension breakdown.
+ * Without slug: returns basic info for all 55 planning areas.
  *
  * Optional: weights (JSON string) for custom scoring.
  *
@@ -17,6 +17,12 @@ export async function GET(request: NextRequest) {
     const slug = searchParams.get("slug");
     const weightsRaw = searchParams.get("weights");
     const weights = parseWeightsParam(weightsRaw);
+    if (weightsRaw && !weights) {
+      return NextResponse.json(
+        { error: "Invalid weights. Use known dimensions with numeric values from 0 to 3." },
+        { status: 400 }
+      );
+    }
 
     if (slug) {
       const areaScore = getAreaScore(slug, weights);

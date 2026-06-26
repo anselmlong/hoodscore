@@ -21,10 +21,12 @@ html {
 }
 
 body {
-  background-color: white;
+  background:
+    linear-gradient(180deg, #f8fbfd 0%, #ffffff 320px);
   color: var(--color-civic-800);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Custom scrollbar */
@@ -76,9 +78,14 @@ button,
 input,
 select,
 textarea {
-  transition-property: all;
-  transition-duration: 150ms;
-  transition-timing-function: ease;
+  transition-property: background-color, border-color, color, box-shadow, opacity, transform;
+  transition-duration: 180ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button:active,
+a:active {
+  transform: translateY(1px);
 }
 
 /* Focus outline */

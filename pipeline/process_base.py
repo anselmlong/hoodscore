@@ -9,6 +9,7 @@ Provides:
 """
 
 import os
+import re
 from abc import ABC, abstractmethod
 from typing import Optional
 
@@ -92,9 +93,14 @@ def spatial_join_count(
         buffered = centroids.buffer(buffer_metres)
 
         # Spatial join: which points fall within each buffer?
+        buffered_areas = gpd.GeoDataFrame(
+            areas_utm[[area_id_col]].copy(),
+            geometry=buffered,
+            crs=utm_crs,
+        )
         joined = gpd.sjoin(
             points_utm,
-            gpd.GeoDataFrame(geometry=buffered, index=areas_utm.index),
+            buffered_areas,
             predicate="within",
             how="inner",
         )
@@ -254,6 +260,14 @@ def _estimate_utm_crs(gdf: gpd.GeoDataFrame) -> str:
     """Estimate a suitable UTM CRS for Singapore (EPSG:32648 = UTM zone 48N)."""
     # Singapore is in UTM zone 48N
     return "EPSG:32648"
+
+
+def slugify_area_name(value: str) -> str:
+    """Create the stable slug used by the frontend from a planning area name."""
+    text = str(value).strip().lower().replace("&", "and")
+    text = re.sub(r"[/_]+", "-", text)
+    text = re.sub(r"[^a-z0-9-]+", "-", text)
+    return re.sub(r"-+", "-", text).strip("-")
 
 
 def load_planning_areas() -> gpd.GeoDataFrame:

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { compareAreas } from "@/lib/scores";
+import { compareAreas, sanitizeWeights, validateSlugs } from "@/lib/scores";
 
 /**
  * POST /api/compare
@@ -11,36 +11,39 @@ import { compareAreas } from "@/lib/scores";
  */
 export async function POST(request: NextRequest) {
   try {
+    const contentLength = Number(request.headers.get("content-length") ?? 0);
+    if (contentLength > 10_000) {
+      return NextResponse.json(
+        { error: "Request body is too large" },
+        { status: 413 }
+      );
+    }
+
     const body = await request.json();
+    const validatedSlugs = validateSlugs(body?.slugs);
 
-    // Validate slugs
-    const slugs: string[] = body?.slugs;
-    if (!slugs || !Array.isArray(slugs) || slugs.length === 0) {
+    if (!validatedSlugs.ok) {
       return NextResponse.json(
-        { error: "Missing or invalid 'slugs' array in request body" },
+        { error: validatedSlugs.error },
         { status: 400 }
       );
     }
 
-    if (slugs.some((s) => typeof s !== "string")) {
+    const weights = sanitizeWeights(body?.weights);
+    if (body?.weights !== undefined && !weights) {
       return NextResponse.json(
-        { error: "All entries in 'slugs' must be strings" },
+        { error: "Invalid weights. Use known dimensions with numeric values from 0 to 3." },
         { status: 400 }
       );
     }
 
-    const weights: Record<string, number> | undefined = body?.weights;
-    const comparison = compareAreas(slugs, weights);
-
-    if (comparison.length === 0) {
-      return NextResponse.json(
-        { error: "No matching planning areas found for the given slugs" },
-        { status: 404 }
-      );
-    }
+    const comparison = compareAreas(validatedSlugs.slugs, weights);
 
     return NextResponse.json({ data: { comparison } }, { status: 200 });
   } catch (error) {
+    if (error instanceof SyntaxError) {
+      return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+    }
     const message =
       error instanceof Error ? error.message : "Failed to compare areas";
     return NextResponse.json({ error: message }, { status: 500 });
