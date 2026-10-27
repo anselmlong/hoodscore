@@ -51,6 +51,17 @@ export default function RootLayout({
           >
             &larr; part of anselmlong.com
           </a>
+          <span style={{ ...ecosystemFooterLinkStyle, opacity: 0.5, margin: "0 0.5rem" }} aria-hidden="true">
+            &middot;
+          </span>
+          <a
+            href="https://ko-fi.com/anselmlong"
+            target="_blank"
+            rel="noopener"
+            style={ecosystemFooterLinkStyle}
+          >
+            &#9749; support me on ko-fi
+          </a>
         </div>
       </body>
     </html>
