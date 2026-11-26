@@ -56,12 +56,20 @@ export default function AreaList({ areas, onCompare, compareSlugs }: AreaListPro
   const [sortKey, setSortKey] = useState<SortKey>("overall");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
 
+  const rankBySlug = useMemo(() => {
+    const ranks = new Map<string, number>();
+    [...areas]
+      .sort((a, b) => b.overall - a.overall)
+      .forEach((a, i) => ranks.set(a.area.slug, i + 1));
+    return ranks;
+  }, [areas]);
+
   const sortedAreas = useMemo(() => {
     const sorted = [...areas];
     sorted.sort((a, b) => {
       let cmp = 0;
       if (sortKey === "rank") {
-        cmp = a.overall - b.overall;
+        cmp = (rankBySlug.get(b.area.slug) ?? 0) - (rankBySlug.get(a.area.slug) ?? 0);
       } else if (sortKey === "overall") {
         cmp = a.overall - b.overall;
       } else {
@@ -72,7 +80,11 @@ export default function AreaList({ areas, onCompare, compareSlugs }: AreaListPro
       return sortDir === "desc" ? -cmp : cmp;
     });
     return sorted;
-  }, [areas, sortKey, sortDir]);
+  }, [areas, rankBySlug, sortKey, sortDir]);
+
+  const openArea = (slug: string) => {
+    router.push(`/area/${slug}${window.location.search}`);
+  };
 
   const handleSort = (key: SortKey) => {
     if (sortKey === key) {
@@ -139,13 +151,23 @@ export default function AreaList({ areas, onCompare, compareSlugs }: AreaListPro
           </tr>
         </thead>
         <tbody>
-          {sortedAreas.map((a, idx) => {
-            const rank = idx + 1;
+          {sortedAreas.map((a) => {
+            const rank = rankBySlug.get(a.area.slug);
             return (
               <tr
                 key={a.area.slug}
-                className="border-b border-gray-100 hover:bg-civic-50/50 cursor-pointer transition-colors"
-                onClick={() => router.push(`/area/${a.area.slug}`)}
+                tabIndex={0}
+                role="link"
+                aria-label={`View ${a.area.name}`}
+                className="border-b border-gray-100 hover:bg-civic-50/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 cursor-pointer transition-colors"
+                onClick={() => openArea(a.area.slug)}
+                onKeyDown={(e) => {
+                  if (e.target !== e.currentTarget) return;
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openArea(a.area.slug);
+                  }
+                }}
               >
                 {onCompare && (
                   <td className="px-2 py-2" onClick={(e) => e.stopPropagation()}>
